@@ -1,0 +1,10 @@
+{
+    # 记录每一行到一个数组
+    line[NR] = $0
+}END{
+    i = NR
+    while(i >0){
+        print line[i]
+        i = i - 1
+    }
+}

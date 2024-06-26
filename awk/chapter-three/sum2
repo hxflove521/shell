@@ -1,0 +1,22 @@
+# sum2  按列计算和
+# input 多行数字
+# output    每列的综合，输出为一行
+# 缺少的字段默认为0
+NR == 1 {nfld = NF}
+{for (i = 1; i<= NF; i++){
+    sum[i] += $i
+    };
+    if (NF != nfld)
+    {
+        print "line " NR " has " NF " entries, not " nfld
+    }
+} END {
+    for (i = 1; i <= nfld;i++){
+        printf("%g",sum[i])
+        if(i<nfld){
+            printf("\t")
+        }else{
+            printf("\n")
+        }
+    }
+}

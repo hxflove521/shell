@@ -1,0 +1,21 @@
+# sum1  按列计算和
+# input 多行数字
+# output    每列的综合，输出为一行
+# 缺少的字段默认为0
+{for (i = 1; i<= NF; i++){
+    sum[i] += $i
+    };
+    if (NF > maxfld)
+    {
+        maxfld = NF
+    }
+} END {
+    for (i = 1; i <= maxfld;i++){
+        printf("%g",sum[i])
+        if(i<maxfld){
+            printf("\t")
+        }else{
+            printf("\n")
+        }
+    }
+}
